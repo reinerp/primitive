@@ -481,6 +481,13 @@ instance (Prim x, GPrim xs) => GPrim (xs :* x) where
   {-# INLINE gindexOffAddrA# #-}
   {-# INLINE greadOffAddrA# #-}
   {-# INLINE gwriteOffAddrA# #-}
+
+instance Prim ()
+instance (Prim a, Prim b) => Prim (a, b)
+instance (Prim a, Prim b, Prim c) => Prim (a, b, c)
+instance (Prim a, Prim b, Prim c, Prim d) => Prim (a, b, c, d)
+instance (Prim a, Prim b, Prim c, Prim d, Prim e) => Prim (a, b, c, d, e)
+instance (Prim a, Prim b, Prim c, Prim d, Prim e, Prim f) => Prim (a, b, c, d, e, f)
 #endif
 
 #define derivePrim(ty, ctr, sz, align, idx_arr, rd_arr, wr_arr, set_arr, idx_addr, rd_addr, wr_addr, set_addr) \
