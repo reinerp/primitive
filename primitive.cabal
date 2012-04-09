@@ -64,6 +64,9 @@ Library
   Build-Depends: base >= 4 && < 5, ghc-prim
 
   Ghc-Options: -O2
+  if impl(ghc >= 7.2.1)
+    cpp-options: -DGENERICS
+
 
   Include-Dirs: cbits
   Install-Includes: primitive-memops.h
